@@ -1,0 +1,11 @@
+//Start zookeeper in background
+bin/zookeeper-server-start.sh -daemom config/zookeeper.properties
+
+//Start kafka in background
+bin/kafka-server-start.sh -daemon config/server.properties
+
+//List topics
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+//View messsages
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic testTopic --from-beginning
